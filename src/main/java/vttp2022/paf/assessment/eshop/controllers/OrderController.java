@@ -39,11 +39,13 @@ public class OrderController {
 	private WarehouseService warehouseSvc;
 
 	@GetMapping(path= "/name")
-	public ResponseEntity <String> getCustomerByName (@PathVariable String name) {
+	public ResponseEntity <String> getCustomerByName (@PathVariable String name, @PathVariable String address, @PathVariable String email) {
 		JsonObject result = null;
 		Optional<Customer> customer = warehouseSvc.dispatch(name);
 		JsonObjectBuilder builder = Json.createObjectBuilder();
 		builder.add("name", customer.get().toJSON());
+		builder.add("address", customer.get().toJSON());
+		builder.add("email", customer.get().toJSON());
 		result = builder.build();
 
 		return ResponseEntity
