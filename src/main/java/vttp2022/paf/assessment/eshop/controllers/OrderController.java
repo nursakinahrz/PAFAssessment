@@ -23,6 +23,8 @@ import jakarta.json.Json;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonObjectBuilder;
 import vttp2022.paf.assessment.eshop.models.Customer;
+import vttp2022.paf.assessment.eshop.models.Order;
+import vttp2022.paf.assessment.eshop.models.OrderStatus;
 import vttp2022.paf.assessment.eshop.respositories.CustomerRepository;
 import vttp2022.paf.assessment.eshop.respositories.OrderRepository;
 import vttp2022.paf.assessment.eshop.services.WarehouseService;
@@ -50,7 +52,7 @@ public class OrderController {
 		.body(result.toString());
 		
 	}
-	
+
 	@PostMapping
 	public String postCustomer(@RequestBody MultiValueMap <String, String> form, Model model) {
 		String name = form.getFirst("name");
@@ -61,9 +63,15 @@ public class OrderController {
 		Customer postedCustomer = warehouseSvc.postCustomer(c);
 		model.addAttribute(name, postedCustomer);
 
-		return "customer_result"; 
+	
+	}
+
+	@PostMapping(path="http://paf.chuklee.com/dispatch/{orderId}")
+	public ResponseEntity <String> dispatched(@PathVariable Integer orderID, @RequestBody OrderStatus json) {
+		return null;
 
 	}
+
 
 
 
