@@ -22,11 +22,12 @@ public class CustomerRepository {
 	// You cannot change the method's signature
 	public Optional<Customer> findCustomerByName(String name) {
 		// TODO: Task 3
+
         final Optional<Customer> customer = Optional.empty();
 
-        //query for the database
         System.out.println(">>>Customer" + name);
-       SqlRowSet result = null;
+
+        SqlRowSet result = null;
 
        if (name == null) {
         result = template.queryForRowSet(SQL_SELECT_ALL_CUSTOMERS);
@@ -51,7 +52,9 @@ public class CustomerRepository {
 
 		return customer;
 
+
+
 	}
 
-    
+
 }

@@ -29,6 +29,13 @@ CREATE TABLE railway.lineItem
 	quantity int default '1'
 );
 
+CREATE TABLE railway.order_status
+(	order_id varchar(8) not null,
+delivery_id varchar(8) not null,
+status enum ('pending', 'dispatched') not null,
+status_update DateTime not null
+);
+
 
 
 

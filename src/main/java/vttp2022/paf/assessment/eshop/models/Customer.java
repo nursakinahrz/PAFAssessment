@@ -2,6 +2,8 @@ package vttp2022.paf.assessment.eshop.models;
 
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import jakarta.json.JsonValue;
+
 // DO NOT CHANGE THIS CLASS
 public class Customer {
 
@@ -21,6 +23,7 @@ public class Customer {
 	public static Object create(SqlRowSet result) {
         return null;
     }
+
 
 
 
