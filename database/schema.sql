@@ -24,5 +24,12 @@ CREATE TABLE railway.order
     primary key(order_id)
 );
 
+CREATE TABLE railway.lineItem
+(  item text not null,
+	quantity int default '1'
+);
+
+
+
 
 
